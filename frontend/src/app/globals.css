@@ -1,3 +1,5 @@
+
+
 .form-container {
     width: 400px;
     margin: 0 auto;
@@ -33,7 +35,10 @@
   
   .products-container{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
+    height: 250px;
   }
 
   .product-card{

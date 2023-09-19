@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-function AddProduct() {
+function AddProduct({getProducts}) {
   const [name, setName] = useState();
   const [price, setPrice] = useState();
   const [stock, setStock] = useState();
@@ -15,7 +15,7 @@ function AddProduct() {
     
 
     try {
-        const response = await fetch('https://backend-deploy-m98s.onrender.com/', {
+        const response = await fetch('http://localhost:8080', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -25,6 +25,7 @@ function AddProduct() {
     
           if (response.ok) {
             alert('Producto agregado correctamente')
+            getProducts()
           }
           setName('');
           setPrice('');

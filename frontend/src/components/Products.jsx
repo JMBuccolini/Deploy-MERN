@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from "react";
+import AddProduct from "./AddProduct";
 
 function Products() {
 
@@ -9,7 +10,7 @@ function Products() {
 
     const getProducts = async () => {
         try {
-          const response = await fetch('https://backend-deploy-m98s.onrender.com/');
+          const response = await fetch('http://localhost:8080');
           
           if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -32,23 +33,26 @@ function Products() {
 
 
   return (
-    <div className="products-container">
+    <div>
+      <AddProduct getProducts={getProducts} />
         <h2>Products</h2>
-        
-    {
+        <div className="products-container">
 
-        products && products.length != 0 && products.map(prod=>(
+                {
 
-            <div className="product-card" key={prod._id}>
-                <h3>{prod.name}</h3>
-                <p>{prod.price}</p>
-                <p>{prod.stock}</p>
-            </div>
+                    products && products.length != 0 && products.map(prod=>(
 
-        ))
+                        <div className="product-card" key={prod._id}>
+                            <h3>{prod.name}</h3>
+                            <p>{prod.price}</p>
+                            <p>{prod.stock}</p>
+                        </div>
+
+                    ))
 
 
-    }
+                }
+        </div>
 
         
 </div>
