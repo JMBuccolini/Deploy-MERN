@@ -9,7 +9,7 @@ function Products() {
 
     const getProducts = async () => {
         try {
-          const response = await fetch('http://localhost:8080');
+          const response = await fetch('https://backend-deploy-m98s.onrender.com/');
           
           if (!response.ok) {
             throw new Error('Network response was not ok');

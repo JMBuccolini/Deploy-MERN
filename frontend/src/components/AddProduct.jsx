@@ -15,7 +15,7 @@ function AddProduct() {
     
 
     try {
-        const response = await fetch('http://localhost:8080', {
+        const response = await fetch('https://backend-deploy-m98s.onrender.com/', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
